@@ -1,24 +1,21 @@
 package com.example.elicunningham.grocerycodes.Application;
 
+import com.example.elicunningham.grocerycodes.Model.CodeList;
 import com.example.elicunningham.grocerycodes.Model.GroceryCode;
-
-import java.util.ArrayList;
 
 public class GameManger {
 
-    private ArrayList<GroceryCode> codes;
+    private CodeList codes;
 
     public GameManger(){
-        codes = new ArrayList<>();
-        codes.add(new GroceryCode("Banana", "4011"));
-        codes.add(new GroceryCode("Orange", "4012"));
+        codes = new CodeList();
     }
 
     public boolean hasCodesLeft(){
-        return codes.isEmpty();
+        return codes.hasCodes();
     }
 
     public GroceryCode getNextCode(){
-        return codes.get(0);
+        return codes.getNextCode();
     }
 }
