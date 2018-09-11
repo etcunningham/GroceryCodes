@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GroceryCodes</string>
+    <string name="app_title">Grocery Codes</string>
+    <string name="play_button">Start Game</string>
 </resources>
