@@ -1,14 +1,18 @@
 package com.example.elicunningham.grocerycodes.Application;
 
+import android.content.Context;
+
 import com.example.elicunningham.grocerycodes.Model.CodeList;
 import com.example.elicunningham.grocerycodes.Model.GroceryCode;
 
 public class GameManger {
 
     private CodeList codes;
+    private Context context;
 
-    public GameManger(){
-        codes = new CodeList();
+    public GameManger(Context context){
+        this.context = context;
+        codes = new CodeList(context);
     }
 
     public boolean hasCodesLeft(){

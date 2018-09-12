@@ -28,7 +28,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         // create a new gameManager for this game
-        manager = new GameManger();
+        manager = new GameManger(getApplicationContext());
 
         answerField = findViewById(R.id.editText);
 
