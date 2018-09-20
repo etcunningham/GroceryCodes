@@ -5,13 +5,12 @@ import android.content.Context;
 import com.example.elicunningham.grocerycodes.Model.CodeList;
 import com.example.elicunningham.grocerycodes.Model.GroceryCode;
 
-public class GameManger {
+public class GameManager {
 
     private CodeList codes;
-    private Context context;
+    private GroceryCode currCode;
 
-    public GameManger(Context context){
-        this.context = context;
+    public GameManager(Context context){
         codes = new CodeList(context);
     }
 
@@ -20,6 +19,15 @@ public class GameManger {
     }
 
     public GroceryCode getNextCode(){
-        return codes.getNextCode();
+        currCode = codes.getNextCode();
+        return currCode;
+    }
+
+    public void rightAnswer(){
+        codes.gotCorrect(currCode);
+    }
+
+    public void wrongAnswer(){
+        codes.gotIncorrect(currCode);
     }
 }

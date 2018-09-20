@@ -8,14 +8,15 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.elicunningham.grocerycodes.Application.GameManger;
+import com.example.elicunningham.grocerycodes.Application.GameManager;
+import com.example.elicunningham.grocerycodes.Application.GroceryCodesApp;
 import com.example.elicunningham.grocerycodes.Model.GroceryCode;
 import com.example.elicunningham.grocerycodes.R;
 
 public class GameActivity extends AppCompatActivity {
 
     private EditText answerField;
-    private GameManger manager;
+    private GameManager manager;
     private GroceryCode currCode;
 
     /**
@@ -27,8 +28,9 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        // create a new gameManager for this game
-        manager = new GameManger(getApplicationContext());
+        // get the gameManager
+        GroceryCodesApp app = (GroceryCodesApp) getApplicationContext();
+        manager = app.getManager();
 
         answerField = findViewById(R.id.editText);
 
@@ -83,12 +85,12 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void rightAnswer(){
-        //manager.rightAnswer();
+        manager.rightAnswer();
         setupBoard();
     }
 
     private void wrongAnswer(EditText answerField){
-        //manager.wrongAnswer();
+        manager.wrongAnswer();
         answerField.setText("");
     }
 }
